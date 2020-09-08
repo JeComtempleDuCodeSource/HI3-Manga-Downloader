@@ -304,7 +304,7 @@ else if ($errorlvl == 2 || $errorlvl == "2")
 }
 else error_reporting(-1);
 
-echo("Welcome to HI3 manga php downloader! (HMPD if you prefer)\nPlease report issues at https://github.com/JeComtempleDuCodeSource/HI3-Manga-Downloader\n");
+echo("Welcome to HI3 manga php downloader! (HMPD if you prefer)\nPlease report issues at https://github.com/JeComtempleDuCodeSource/HMPD\n");
 $server = readline("Type 1 to download from global server.And Type 2 to download from CN server: ");
 if ($server == 1 || $server == "1")
 {
