@@ -64,8 +64,78 @@ $cnSecondKey      = 1021;
 $cnEmpyreanBlade  = 1022;
 $cnAlienSpace     = 1023;
 
+function getGlobalBooks()
+{
+    global $gbaichanFacts   ; 
+    global $gbGratitude     ; 
+    global $gbAEInvasion    ; 
+    global $gbAzureWater    ; 
+    global $gbSecondEruption; 
+    global $gbGeminaTales   ; 
+    global $gbWorldSerpent  ; 
+    global $gbKianaPlayHI3  ; 
+    global $gbLondonHoliday ; 
+    global $gbMoonShadow    ; 
+    global $gbElanPalatinus ; 
+    global $gbSpringfest    ; 
+    global $gbELF           ; 
+    global $gbSecondKey     ; 
+    global $gbNagazora      ; 
+    global $gbFreyaHigh     ; 
+    global $gbGeminaInvasion; 
+    global $gbDivineKey     ; 
+    global $gbCWV           ; 
+    global $gbEmpyreanBlade ; 
+    global $gbAlienSpace    ; 
+    $booksInfos = array();
+    $booksInfos[] = new bookStruct($gbaichanFacts, "Ai-Chan Facts");
+    $booksInfos[] = new bookStruct($gbGratitude, "Gratitude Arc");
+    $booksInfos[] = new bookStruct($gbAEInvasion, "AE Invasion");
+    $booksInfos[] = new bookStruct($gbAzureWater, "Azure Waters");
+    $booksInfos[] = new bookStruct($gbSecondEruption, "Second Eruption");
+    $booksInfos[] = new bookStruct($gbGeminaTales, "Gemina: Tales");
+    $booksInfos[] = new bookStruct($gbWorldSerpent, "World Serpent");
+    $booksInfos[] = new bookStruct($gbKianaPlayHI3, "Kiana Plays Honkai");
+    $booksInfos[] = new bookStruct($gbLondonHoliday, "London Holiday");
+    $booksInfos[] = new bookStruct($gbMoonShadow, "Moon Shadow");
+    $booksInfos[] = new bookStruct($gbElanPalatinus, "Elan Palatinus");
+    $booksInfos[] = new bookStruct($gbSpringfest, "SpringFest");
+    $booksInfos[] = new bookStruct($gbELF, "ELF");
+    $booksInfos[] = new bookStruct($gbSecondKey, "Second Key");
+    $booksInfos[] = new bookStruct($gbNagazora, "Escape From Nagazora");
+    $booksInfos[] = new bookStruct($gbFreyaHigh, "St. Freya High");
+    $booksInfos[] = new bookStruct($gbGeminaInvasion, "Gemina: Invasion");
+    $booksInfos[] = new bookStruct($gbDivineKey, "Divine Key");
+    $booksInfos[] = new bookStruct($gbCWV, "Cooking With Valkyries");
+    $booksInfos[] = new bookStruct($gbEmpyreanBlade, "Empyrean Blade");
+    $booksInfos[] = new bookStruct($gbAlienSpace, "Alien Space");
+    return $booksInfos;
+}
+
 function getCNBooks()
 {
+    global $cnNagazora      ;
+    global $cnHI3           ;
+    global $cnBohai         ;
+    global $cnSakura        ;
+    global $cnAEInvasion    ;
+    global $cnGratitudeArc  ;
+    global $cnMoonShadow    ;
+    global $cnElanPalatinus ;
+    global $cnGodKey        ;
+    global $cnKiana         ;
+    global $cnSecondLawman  ;
+    global $cnCWV           ;
+    global $cnSummerMem     ;
+    global $cnGeminaOrigin  ;
+    global $cnGeminaInvasion;
+    global $cnWorldSerpent  ;
+    global $cnLondonHoliday ;
+    global $cnSpringfest    ;
+    global $cnELF           ;
+    global $cnSecondKey     ;
+    global $cnEmpyreanBlade ;
+    global $cnAlienSpace    ;
     $booksInfos = array();
     $booksInfos[] = new bookStruct($cnNagazora, "逃离长空篇");
     $booksInfos[] = new bookStruct($cnHI3, "樱花追忆篇");
@@ -92,38 +162,22 @@ function getCNBooks()
     return $booksInfos;
 }
 
-function getGlobalBooks()
-{
-    $booksInfos = array();
-    $booksInfos[] = new bookStruct($gbaichanFacts, "Ai-Chan Facts");
-    $booksInfos[] = new bookStruct($gbGratitude, "Gratitude Arc");
-    $booksInfos[] = new bookStruct($gbAEInvasion, "AE Invasion");
-    $booksInfos[] = new bookStruct($gbAzureWater, "Azure Waters");
-    $booksInfos[] = new bookStruct($gbSecondEruption, "Second Eruption");
-    $booksInfos[] = new bookStruct($gbGeminaTales, "Gemina: Tales");
-    $booksInfos[] = new bookStruct($gbWorldSerpent, "World Serpent");
-    $booksInfos[] = new bookStruct($gbKianaPlayHI3, "Kiana Plays Honkai");
-    $booksInfos[] = new bookStruct($gbLondonHoliday, "London Holiday");
-    $booksInfos[] = new bookStruct($gbMoonShadow, "Moon Shadow");
-    $booksInfos[] = new bookStruct($gbElanPalatinus, "Elan Palatinus");
-    $booksInfos[] = new bookStruct($gbSpringfest, "SpringFest");
-    $booksInfos[] = new bookStruct($gbELF, "ELF");
-    $booksInfos[] = new bookStruct($gbSecondKey, "Second Key");
-    $booksInfos[] = new bookStruct($gbNagazora, "Escape From Nagazora");
-    $booksInfos[] = new bookStruct($gbFreyaHigh, "St. Freya High");
-    $booksInfos[] = new bookStruct($gbGeminaInvasion, "Gemina: Invasion");
-    $booksInfos[] = new bookStruct($gbDivineKey, "Divine Key");
-    $booksInfos[] = new bookStruct($gbCWV, "Cooking With Valkyries");
-    $booksInfos[] = new bookStruct($gbEmpyreanBlade, "Empyrean Blade");
-    $booksInfos[] = new bookStruct($gbAlienSpace, "Alien Space");
-    return $booksInfos;
-}
-
 function startsWith($string, $startString) 
 { 
-    $len = strlen($startString); 
-    return (substr($string, 0, $len) === $startString); 
+    $length = strlen($startString); 
+    return (substr($string, 0, $length) === $startString); 
 } 
+
+// Function taken from https://gist.github.com/eusonlito/5099936
+function getFolderSize($Directory)
+{
+    $Size = 0;
+    foreach (glob(rtrim($Directory, '/').'/*', GLOB_NOSORT) as $eachElement) 
+    {
+        $Size += is_file($eachElement) ? filesize($eachElement) : getFolderSize($eachElement);
+    }
+    return $Size;
+}
 
 function getLastChapter($BookURL)
 {
@@ -142,54 +196,147 @@ function getLastChapter($BookURL)
 
 function downloadBook($serverRegion, $bookID)
 {
-    $maxChap = getLastChapter($serverRegion . "/" . $bookID);
-    echo("Start downloading chapter 1\n");
-    for ($chapCount = 1; $chapCount < $maxChap; $chapCount++)
+    if ($serverRegion == "https://comicstatic.bh3.com/new_static_v2/comic/book")
     {
-        $lv1concatURL = $serverRegion . "/" . $bookID . "/" . $chapCount . "/";
-        mkdir("./Book" . $bookID .  "/Chapter" . $chapCount, 0777, true);
-        echo("Downloading chapter " . $chapCount . "\n");
-        echo($lv1concatURL . " => " . "./Book" . $bookID .  "/Chapter" . $chapCount . "\n");
-        for ($pageCount = 1; $pageCount < 70; $pageCount++)
+        $maxChap = getLastChapter($serverRegion . "/" . $bookID);
+        echo("Start downloading chapter 1\n");
+        for ($chapCount = 1; $chapCount < $maxChap; $chapCount++)
         {
-            $lv2concatURL = "NOT INITIALIZED YET";
-            if ($pageCount < 10) { $lv2concatURL = $lv1concatURL . "000" . $pageCount . ".jpg";}
-            else { $lv2concatURL = $lv1concatURL . "00" . $pageCount . ".jpg";}
-            $localFilePath = "./Book" . $bookID .  "/Chapter" . $chapCount . "/" . basename($lv2concatURL);
-            $pageBuffer = 0x00;
-            if (file_get_contents($lv2concatURL) == true)
+            $lv1concatURL = $serverRegion . "/" . $bookID . "/" . $chapCount . "/";
+            mkdir("./CNBook" . $bookID .  "/Chapter" . $chapCount, 0777, true);
+            echo("Downloading chapter " . $chapCount . "\n");
+            echo($lv1concatURL . " => " . "./CNBook" . $bookID .  "/Chapter" . $chapCount . "\n");
+            for ($pageCount = 1; $pageCount < 70; $pageCount++)
             {
-                $pageBuffer = file_get_contents($lv2concatURL);
-                file_put_contents($localFilePath, $pageBuffer);
-                echo($lv2concatURL . " => " . $localFilePath . "\n");
-            }
-            else 
-            {
-                echo("Can't download page " . $pageCount . " of chapter " . $chapCount . " (IT PROBABLY DOES NOT EXISTS SO DON'T WORRY)\n");
-                if (($chapCount) == $maxChap)
-                    echo("Next chapter(" . ($chapCount + 1) . ")\n");
-                break;
+                $lv2concatURL = "NOT INITIALIZED YET";
+                if ($pageCount < 10) { $lv2concatURL = $lv1concatURL . "000" . $pageCount . ".jpg";}
+                else { $lv2concatURL = $lv1concatURL . "00" . $pageCount . ".jpg";}
+                $localFilePath = "./CNBook" . $bookID .  "/Chapter" . $chapCount . "/" . basename($lv2concatURL);
+                $pageBuffer = 0x00;
+                if (file_get_contents($lv2concatURL) == true)
+                {
+                    $pageBuffer = file_get_contents($lv2concatURL);
+                    file_put_contents($localFilePath, $pageBuffer);
+                    if ($chapCount < 10)
+                    {
+                        if ($pageCount < 10)
+                        {
+                            rename($localFilePath, (substr($localFilePath, 0, -8) . "0" . $chapCount . "0" . $pageCount . ".jpg"));
+                        }
+                        else 
+                        {
+                            rename($localFilePath, (substr($localFilePath, 0, -8) . "0" . $chapCount . $pageCount . ".jpg"));
+                        }
+                    }
+                    else 
+                    {
+                        if ($pageCount < 10)
+                        {
+                            rename($localFilePath, (substr($localFilePath, 0, -8) . $chapCount . "0" . $pageCount . ".jpg"));
+                        }
+                        else 
+                        {
+                            rename($localFilePath, (substr($localFilePath, 0, -8) . $chapCount . $pageCount . ".jpg"));
+                        }
+                    }
+                    echo($lv2concatURL . " => " . $localFilePath . "\n");
+                }
+                else 
+                {
+                    echo("Can't download page " . $pageCount . " of chapter " . $chapCount . " (IT PROBABLY DOES NOT EXISTS SO DON'T WORRY)\n");
+                    if (($chapCount) == $maxChap)
+                        echo("Next chapter(" . ($chapCount + 1) . ")\n");
+                    break;
+                }
             }
         }
+        echo("Finished downloading book" . $bookID . " on server \"" . $serverRegion .  "\"\n");
     }
-    echo("Finished downloading book" . $bookID . " on server \"" . $serverRegion .  "\"\n");
+    else 
+    {
+        $maxChap = getLastChapter($serverRegion . "/" . $bookID);
+        echo("Start downloading chapter 1\n");
+        for ($chapCount = 1; $chapCount < $maxChap; $chapCount++)
+        {
+            $lv1concatURL = $serverRegion . "/" . $bookID . "/" . $chapCount . "/";
+            mkdir("./GBBook" . $bookID .  "/Chapter" . $chapCount, 0777, true);
+            echo("Downloading chapter " . $chapCount . "\n");
+            echo($lv1concatURL . " => " . "./GBBook" . $bookID .  "/Chapter" . $chapCount . "\n");
+            for ($pageCount = 1; $pageCount < 70; $pageCount++)
+            {
+                $lv2concatURL = "NOT INITIALIZED YET";
+                if ($pageCount < 10) { $lv2concatURL = $lv1concatURL . "000" . $pageCount . ".jpg";}
+                else { $lv2concatURL = $lv1concatURL . "00" . $pageCount . ".jpg";}
+                $localFilePath = "./GBBook" . $bookID .  "/Chapter" . $chapCount . "/" . basename($lv2concatURL);
+                $pageBuffer = 0x00;
+                if (file_get_contents($lv2concatURL) == true)
+                {
+                    $pageBuffer = file_get_contents($lv2concatURL);
+                    file_put_contents($localFilePath, $pageBuffer);
+                    echo($lv2concatURL . " => " . $localFilePath . "\n");
+                }
+                else 
+                {
+                    echo("Can't download page " . $pageCount . " of chapter " . $chapCount . " (IT PROBABLY DOES NOT EXISTS SO DON'T WORRY)\n");
+                    if (($chapCount) == $maxChap)
+                        echo("Next chapter(" . ($chapCount + 1) . ")\n");
+                    break;
+                }
+            }
+        }
+        echo("Finished downloading book" . $bookID . " on server \"" . $serverRegion .  "\"\n");
+    }
 }
 //Windows exclusive stuff
 //if (startsWith(PHP_OS, "WIN"))
 //{
 //    
 //}
-//error_reporting(0);
-
-$booksInfos = getGlobalBooks();
-echo("Welcome to HI3 manga php downloader! (HMPD if you prefer)\n");
-for ($Index = 0; $Index < count($booksInfos); $Index++)
+$errorlvl = readline("Type 1 to show all php errors and type 2 to disabled them: ");
+if ($errorlvl == 1 || $errorlvl == "1")
 {
-    $additionalZero = "";
-    if ($Index < 10) { $additionalZero = "0";}
-    echo("Type " . $additionalZero . $Index . " to download the book " . $booksInfos[$Index]->bookID . " also known as " . $booksInfos[$Index]->bookName . "\n");
+    error_reporting(-1);
 }
-$bookIndex = readline("Type the corresponding number: ");
-downloadBook($globalBaseURL, $booksInfos[$bookIndex]->bookID);
+
+else if ($errorlvl == 2 || $errorlvl == "2")
+{
+    error_reporting(0);
+}
+else error_reporting(-1);
+
+echo("Welcome to HI3 manga php downloader! (HMPD if you prefer)\n");
+$server = readline("Type 1 to download from global server.And Type 2 to download from CN server: ");
+if ($server == 1 || $server == "1")
+{
+    $booksInfos = getGlobalBooks();
+    for ($Index = 0; $Index < count($booksInfos); $Index++)
+    {
+        $additionalZero = "";
+        if ($Index < 10) { $additionalZero = "0";}
+        echo("Type " . $additionalZero . $Index . " to download the book " . $booksInfos[$Index]->bookID . " also known as " . $booksInfos[$Index]->bookName . "\n");
+    }
+    $bookIndex = readline("Type the corresponding number: ");
+    if ($bookIndex < 0 || $bookIndex >= count($booksInfos))
+        exit("Not valid input\n");
+    downloadBook($globalBaseURL, $booksInfos[$bookIndex]->bookID);
+    echo("Total diskspace taken by " . "\"./Book" . $booksInfos[$bookIndex]->bookID . "\": " . getFolderSize("./Book" . $booksInfos[$bookIndex]->bookID) . "(bytes)\n");
+}
+else if ($server == 2 || $server == "2")
+{
+    $booksInfos = getCNBooks();
+    for ($Index = 0; $Index < count($booksInfos); $Index++)
+    {
+        $additionalZero = "";
+        if ($Index < 10) { $additionalZero = "0";}
+        echo("Type " . $additionalZero . $Index . " to download the book " . $booksInfos[$Index]->bookID . " also known as " . $booksInfos[$Index]->bookName . "\n");
+    }
+    echo("Book names may haven't been displayed correctly if you're on windows use windows terminal\nAnd if you're using bash (GNU/Linux or Termux) set the terminal encoding to UTF-8\n");
+    $bookIndex = readline("Type the corresponding number: ");
+    if ($bookIndex < 0 || $bookIndex >= count($booksInfos))
+        exit("Not valid input\n");
+    downloadBook($chinaBaseURL, $booksInfos[$bookIndex]->bookID);
+    echo("Total diskspace taken by " . "\"./Book" . $booksInfos[$bookIndex]->bookID . "\": " . getFolderSize("./Book" . $booksInfos[$bookIndex]->bookID) . "(bytes)\n");
+}
+else { echo("Not a valid input\n"); }
 ?>
   
