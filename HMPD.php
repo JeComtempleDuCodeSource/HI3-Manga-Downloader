@@ -217,7 +217,7 @@ function downloadBook($serverRegion, $bookID)
                 {
                     $pageBuffer = file_get_contents($lv2concatURL);
                     file_put_contents($localFilePath, $pageBuffer);
-                    if ($chapCount < 10)
+                    /*if ($chapCount < 10)
                     {
                         if ($pageCount < 10)
                         {
@@ -238,7 +238,7 @@ function downloadBook($serverRegion, $bookID)
                         {
                             rename($localFilePath, (substr($localFilePath, 0, -8) . $chapCount . $pageCount . ".jpg"));
                         }
-                    }
+                    }*/
                     echo($lv2concatURL . " => " . $localFilePath . "\n");
                 }
                 else 
@@ -319,7 +319,7 @@ if ($server == 1 || $server == "1")
     if ($bookIndex < 0 || $bookIndex >= count($booksInfos))
         exit("Not valid input\n");
     downloadBook($globalBaseURL, $booksInfos[$bookIndex]->bookID);
-    echo("Total diskspace taken by " . "\"./Book" . $booksInfos[$bookIndex]->bookID . "\": " . getFolderSize("./Book" . $booksInfos[$bookIndex]->bookID) . "(bytes)\n");
+    echo("Total diskspace taken by " . "\"./GBBook" . $booksInfos[$bookIndex]->bookID . "\": " . getFolderSize("./GBBook" . $booksInfos[$bookIndex]->bookID) . "(bytes)\n");
 }
 else if ($server == 2 || $server == "2")
 {
@@ -335,7 +335,7 @@ else if ($server == 2 || $server == "2")
     if ($bookIndex < 0 || $bookIndex >= count($booksInfos))
         exit("Not valid input\n");
     downloadBook($chinaBaseURL, $booksInfos[$bookIndex]->bookID);
-    echo("Total diskspace taken by " . "\"./Book" . $booksInfos[$bookIndex]->bookID . "\": " . getFolderSize("./Book" . $booksInfos[$bookIndex]->bookID) . "(bytes)\n");
+    echo("Total diskspace taken by " . "\"./CNBook" . $booksInfos[$bookIndex]->bookID . "\": " . getFolderSize("./CNBook" . $booksInfos[$bookIndex]->bookID) . "(bytes)\n");
 }
 else { echo("Not a valid input\n"); }
 ?>
