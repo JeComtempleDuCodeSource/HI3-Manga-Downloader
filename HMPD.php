@@ -182,7 +182,7 @@ function downloadBook($serverRegion, $bookID)
 //error_reporting(0);
 
 $booksInfos = getGlobalBooks();
-echo("Welcome to HI3 manga php downloader! (HMPD if you want)\n");
+echo("Welcome to HI3 manga php downloader! (HMPD if you prefer)\n");
 for ($Index = 0; $Index < count($booksInfos); $Index++)
 {
     $additionalZero = "";
