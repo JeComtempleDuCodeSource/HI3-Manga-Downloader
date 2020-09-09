@@ -29,7 +29,7 @@ Once you installed it, open the app and type: \
 You can then use a file explorer to move the downloaded books to your sdcard or whatever you want.\
 To move them directly from the app run:\
 ```mv ./Book[BookID] ./storage/[sdcard0|sdcard1|usbotg]/Book[BookID]/```\
-sdcard0 is the phone internal storage sdcard1 the external sdcard and usbotg the external USB key.
+"sdcard0" is the phone internal storage "sdcard1" the external sdcard and "usbotg" the external USB key.
 
 ### Windows
 First go to https://windows.php.net/download/ then go to section "PHP7.4" then "VC15 x64 Thread Safe" and "Zip" download the Zip, Unzip it.\
