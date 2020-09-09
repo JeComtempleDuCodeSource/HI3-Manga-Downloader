@@ -34,6 +34,6 @@ To move them directly from the app run:\
 ### Windows
 First go to https://windows.php.net/download/ then go to section "PHP7.4" then "VC15 x64 Thread Safe" and "Zip" download the Zip, Unzip it.\
 Place the unzipped folder in "C:\Program Files" then add "C:\Program Files\php-7.4.10-Win32-vc15-x64" (It may not exactly be that) to the path.\
-Now open cmd and type "php -v", if windows shows an error that means you didn't setup correctly php if everything is fine.\
+Now open cmd and type "php -v", if windows shows an error that means you didn't setup correctly php, if everything is fine.\
 Then go to "https://github.com/JeComtempleDuCodeSource/HMPD" and download the source code by clicking "Code"->"Download ZIP" unzip that.\
 Open cmd, go to the unzipped source code folder and type "php hmpd.php.
