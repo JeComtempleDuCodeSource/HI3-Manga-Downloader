@@ -19,7 +19,7 @@ Run: \
 ```php HMPD.php```
 
 ### Android
-Go to: https://play.google.com/store/apps/details?id=com.termux and download the app \
+Go to: https://play.google.com/store/apps/details?id=com.termux and download the app. \
 Once you installed it, open the app and type: \
 ```pkg install php```\
 ```pkg install git```\
