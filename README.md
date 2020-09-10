@@ -5,7 +5,7 @@ Very short PHP script to download books(manhua if you prefer) from the official 
 ~~Start from a certain chapter, stop before a certain chapter, download a range of chapter or a precise chapter.~~
 
 ## Why?
-I wrote it because i want to keep sort a an archive of these manhuas, and if you want to know why did i choose PHP it's just because i wanted a simple language and writing this in C or C++ with cURL would be useless IMO.
+I wrote it because i want to keep sort a an archive of these manhuas, and if you want to know why did i choose PHP it's just because i wanted a simple language and writing this in C or C++ would be useless IMO.
 
 ## Guide
 I will soon write a guide for all platforms Termux(Android), GNU/Linux and Windows.
