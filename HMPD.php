@@ -338,9 +338,11 @@ function userInterface()
     }
     else error_reporting(-1);
 
-    if (!file_exists("cacert.pem"))
+    if (!file_exists("./cacert.pem"))
     {
-        file_put_contents("cacert.pem", file_get_contents("https://curl.haxx.se/ca/cacert.pem"));
+        echo("\"No cacert.pem in current directory!\"Downloading cacert.pem...\n");
+        file_put_contents("./cacert.pem", file_get_contents("https://curl.haxx.se/ca/cacert.pem"));
+        echo("Finished downloading cacert.pem");
     }
 
     echo("Welcome to HI3 manga php downloader! (HMPD if you prefer)\n");
