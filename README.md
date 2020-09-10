@@ -8,8 +8,7 @@ Very short PHP script to download books(manhua if you prefer) from the official 
 I wrote it because i want to keep sort a an archive of these manhuas, and if you want to know why did i choose PHP it's just because i wanted a simple language and writing this in C or C++ would be useless IMO.
 
 ## Guide
-I will soon write a guide for all platforms Termux(Android), GNU/Linux and Windows.
-
+Enable curl extension in php.ini by adding in "extension = php_curl.dll", if you're on windows and "extension = php_curl.so" if you're on GNU/Linux or Termux(Android).
 ### Linux
 Run: \
 ```sudo apt install php```\
