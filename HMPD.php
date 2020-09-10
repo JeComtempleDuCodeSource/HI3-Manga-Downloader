@@ -193,8 +193,7 @@ function getLastChapter($BookURL)
     {
         curl_setopt($curlCheck, CURLOPT_URL, $BookURL . "/" . $checkChap . "/0001.jpg");
         curl_exec($curlCheck);
-        $Result = curl_getinfo($curlCheck, CURLINFO_HTTP_CODE);
-        if ($Result != 200)
+        if (curl_getinfo($curlCheck, CURLINFO_HTTP_CODE) != 200)
         {
             echo("Chapter " . $checkChap . " does not exists\n");
             echo("Chapter count is " . ($checkChap - 1) . "\n");
@@ -219,87 +218,84 @@ function downloadBook($serverRegion, $bookID, $startRange, $endRange)
         $lv1dirname = "./GBBook";
     }
     echo("Start downloading chapter 1\n");
-        // For all chapter in the range
-        $curlCheck = curl_init();
-        curl_setopt($curlCheck, CURLOPT_CAINFO, './cacert.pem');
-        curl_setopt($curlCheck, CURLOPT_NOBODY, true);
-        
-        $curlDownload = curl_init();
-        curl_setopt($curlDownload, CURLOPT_RETURNTRANSFER, 1);
-        curl_setopt($curlDownload, CURLOPT_CAINFO, './cacert.pem');
-        curl_setopt($curlDownload, CURLOPT_HEADER, 0);
-        for ($chapCount = $startRange; $chapCount <= $endRange; $chapCount++)
+    // For all chapter in the range
+    $curlCheck = curl_init();
+    curl_setopt($curlCheck, CURLOPT_CAINFO, './cacert.pem');
+    curl_setopt($curlCheck, CURLOPT_NOBODY, true);
+    
+    $curlDownload = curl_init();
+    curl_setopt($curlDownload, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($curlDownload, CURLOPT_CAINFO, './cacert.pem');
+    curl_setopt($curlDownload, CURLOPT_HEADER, false);
+    for ($chapCount = $startRange; $chapCount <= $endRange; $chapCount++)
+    {
+        $lv1concatURL = $serverRegion . "/" . $bookID . "/" . $chapCount . "/";
+        if ($chapCount < 10)
+            mkdir($lv1dirname . $bookID .  "/Chapter" . "0" . $chapCount, 0777, true);
+        else 
+            mkdir($lv1dirname . $bookID .  "/Chapter" . $chapCount, 0777, true);
+        echo("\nDownloading chapter " . $chapCount . "\n");
+        if ($chapCount < 10)
+            echo($lv1concatURL . " => " . $lv1dirname . $bookID .  "/Chapter" . "0" . $chapCount . "\n");
+        else 
+            echo($lv1concatURL . " => " . $lv1dirname . $bookID .  "/Chapter" . $chapCount . "\n");
+        // Folder structure : 
+        // ./[REGION]Book[BookID]/Chapter[Chapter Number]/[TWO FIRST DIGITS IS CHAPTER][TWO LAST DIGITS IS PAGE].jpg
+        for ($pageCount = 1; $pageCount < 70; $pageCount++)
         {
-            $lv1concatURL = $serverRegion . "/" . $bookID . "/" . $chapCount . "/";
-            if ($chapCount < 10)
-                mkdir($lv1dirname . $bookID .  "/Chapter" . "0" . $chapCount, 0777, true);
+            $lv2concatURL = "NOT INITIALIZED YET";
+            if ($pageCount < 10) 
+            { 
+                $lv2concatURL = $lv1concatURL . "000" . $pageCount . ".jpg";
+            }
             else 
-                mkdir($lv1dirname . $bookID .  "/Chapter" . "0" . $chapCount, 0777, true);
-            echo("\nDownloading chapter " . $chapCount . "\n");
+            { 
+                $lv2concatURL = $lv1concatURL . "00" . $pageCount . ".jpg";
+            }
+            $localFilePath = "NOT INITIALIZED";
             if ($chapCount < 10)
-                echo($lv1concatURL . " => " . $lv1dirname . $bookID .  "/Chapter" . "0" . $chapCount . "\n");
-            else 
-                echo($lv1concatURL . " => " . $lv1dirname . $bookID .  "/Chapter" . $chapCount . "\n");
-            // Folder structure : 
-            // ./[REGION]Book[BookID]/Chapter[Chapter Number]/[TWO FIRST DIGITS IS CHAPTER][TWO LAST DIGITS IS PAGE].jpg
-            for ($pageCount = 1; $pageCount < 70; $pageCount++)
             {
-                $lv2concatURL = "NOT INITIALIZED YET";
-                if ($pageCount < 10) 
-                { 
-                    $lv2concatURL = $lv1concatURL . "000" . $pageCount . ".jpg";
-                }
-                else 
-                { 
-                    $lv2concatURL = $lv1concatURL . "00" . $pageCount . ".jpg";
-                }
-                $localFilePath = "NOT INITIALIZED";
-                if ($chapCount < 10)
+                if ($pageCount < 10)
                 {
-                    if ($pageCount < 10)
-                    {
-                        $localFilePath = $lv1dirname . $bookID .  "/Chapter" . "0" . $chapCount . "/" . "0" . $chapCount . "0" . $pageCount . ".jpg";
-                    }
-                    else 
-                    {
-                        $localFilePath = $lv1dirname . $bookID .  "/Chapter" . "0" . $chapCount . "/" . "0" . $chapCount . $pageCount . ".jpg";
-                    }
+                    $localFilePath = $lv1dirname . $bookID .  "/Chapter" . "0" . $chapCount . "/" . "0" . $chapCount . "0" . $pageCount . ".jpg";
                 }
                 else 
                 {
-                    if ($pageCount < 10)
-                    {
-                        $localFilePath = $lv1dirname . $bookID .  "/Chapter" . $chapCount . "/" . $chapCount . "0" . $pageCount . ".jpg";
-                    }
-                    else 
-                    {
-                        $localFilePath = $lv1dirname . $bookID .  "/Chapter" . $chapCount . "/" . $chapCount . $pageCount . ".jpg";
-                    }
-                }
-                $pageBuffer = 0x00;
-                curl_setopt($curlCheck, CURLOPT_URL, $lv2concatURL);
-                curl_exec($curlCheck);
-                $Result = curl_getinfo($curlCheck, CURLINFO_HTTP_CODE);
-                // Download page
-                if ($Result == 200)
-                {
-                    curl_setopt($curlDownload, CURLOPT_URL, $lv2concatURL);
-                    $pageBuffer = curl_exec($curlDownload);
-                    file_put_contents($localFilePath, $pageBuffer);
-                    echo($lv2concatURL . " => " . $localFilePath . "\n");
-                }
-                else 
-                {
-                    echo("Can't download page " . $pageCount . " of chapter " . $chapCount . " (IT PROBABLY DOES NOT EXISTS SO DON'T WORRY)\n");
-                    if (($chapCount) != $endRange)
-                        echo("Next chapter(" . ($chapCount + 1) . ")\n");
-                    break;
+                    $localFilePath = $lv1dirname . $bookID .  "/Chapter" . "0" . $chapCount . "/" . "0" . $chapCount . $pageCount . ".jpg";
                 }
             }
+            else 
+            {
+                if ($pageCount < 10)
+                {
+                    $localFilePath = $lv1dirname . $bookID .  "/Chapter" . $chapCount . "/" . $chapCount . "0" . $pageCount . ".jpg";
+                }
+                else 
+                {
+                    $localFilePath = $lv1dirname . $bookID .  "/Chapter" . $chapCount . "/" . $chapCount . $pageCount . ".jpg";
+                }
+            }
+            curl_setopt($curlCheck, CURLOPT_URL, $lv2concatURL);
+            curl_exec($curlCheck);
+            // Download page
+            if (curl_getinfo($curlCheck, CURLINFO_HTTP_CODE) == 200)
+            {
+                curl_setopt($curlDownload, CURLOPT_URL, $lv2concatURL);
+                file_put_contents($localFilePath, curl_exec($curlDownload));
+                echo($lv2concatURL . " => " . $localFilePath . "\n");
+            }
+            else 
+            {
+                echo("Can't download page " . $pageCount . " of chapter " . $chapCount . " (IT PROBABLY DOES NOT EXISTS SO DON'T WORRY)\n");
+                if (($chapCount) != $endRange)
+                    echo("Next chapter(" . ($chapCount + 1) . ")\n");
+                break;
+            }
         }
-        curl_close($curlCheck);
-        curl_close($curlDownload);
-        echo("Finished downloading book" . $bookID . " on server \"" . $serverRegion .  "\"\n");
+    }
+    curl_close($curlCheck);
+    curl_close($curlDownload);
+    echo("Finished downloading book" . $bookID . " on server \"" . $serverRegion .  "\"\n");
 }
 
 // Gets range from input
