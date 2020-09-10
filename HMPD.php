@@ -187,7 +187,7 @@ function getLastChapter($BookURL)
 {
     echo("Detecting chapter count...\n");
     $curlCheck = curl_init();
-    curl_setopt($curlCheck, CURLOPT_CAINFO, './CAcert.pem');
+    curl_setopt($curlCheck, CURLOPT_CAINFO, './cacert.pem');
     curl_setopt($curlCheck, CURLOPT_NOBODY, true);
     for ($checkChap = 1; $checkChap <= 70; $checkChap++)
     {
@@ -221,12 +221,12 @@ function downloadBook($serverRegion, $bookID, $startRange, $endRange)
     echo("Start downloading chapter 1\n");
         // For all chapter in the range
         $curlCheck = curl_init();
-        curl_setopt($curlCheck, CURLOPT_CAINFO, './CAcert.pem');
+        curl_setopt($curlCheck, CURLOPT_CAINFO, './cacert.pem');
         curl_setopt($curlCheck, CURLOPT_NOBODY, true);
         
         $curlDownload = curl_init();
         curl_setopt($curlDownload, CURLOPT_RETURNTRANSFER, 1);
-        curl_setopt($curlDownload, CURLOPT_CAINFO, './CAcert.pem');
+        curl_setopt($curlDownload, CURLOPT_CAINFO, './cacert.pem');
         curl_setopt($curlDownload, CURLOPT_HEADER, 0);
         for ($chapCount = $startRange; $chapCount <= $endRange; $chapCount++)
         {
@@ -337,6 +337,11 @@ function userInterface()
         error_reporting(0);
     }
     else error_reporting(-1);
+
+    if (!file_exists("cacert.pem"))
+    {
+        file_put_contents("cacert.pem", file_get_contents("https://curl.haxx.se/ca/cacert.pem"));
+    }
 
     echo("Welcome to HI3 manga php downloader! (HMPD if you prefer)\n");
     echo("\n");
