@@ -12,6 +12,7 @@ Enable curl extension in php.ini by adding in "extension = php_curl.dll", if you
 ### Linux
 Run: \
 ```sudo apt install php```\
+```sudo apt install php-curl```\
 ```sudo apt install git```\
 ```git clone https://github.com/JeComtempleDuCodeSource/HMPD```\
 ```cd HMPD```\
