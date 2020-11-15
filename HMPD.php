@@ -308,11 +308,11 @@ function getRange($serverRegion, $bookID)
     echo("The max range is 1-" . ($maxChap - 1) . "\n");
     $Range = array();
 
-    $Range[] = readline("Please type the chapter to start from: ");
+    $Range[] = readline("Please type the chapter from where to start from(including it): ");
     if ($Range[0] < 1 || $Range[0] > ($maxChap - 1))
         exit("Start range cannot be smaller than 1 or greater than " . $maxChap);
 
-    $Range[] = readline("Please type the chapter to where to stop(including it): ");
+    $Range[] = readline("Please type the chapter from where to stop(including it): ");
     if ($Range[1] > ($maxChap - 1) || $Range[1] < 1)
         exit("End range cannot be greater than " . $maxChap . " or smaller than 1");
 
