@@ -67,49 +67,49 @@ $cnAlienSpace     = 1023;
 // Return an array of global bookstruct
 function getGlobalBooks()
 {
-    global $gbaichanFacts   ; 
-    global $gbGratitude     ; 
-    global $gbAEInvasion    ; 
-    global $gbAzureWater    ; 
-    global $gbSecondEruption; 
-    global $gbGeminaTales   ; 
-    global $gbWorldSerpent  ; 
-    global $gbKianaPlayHI3  ; 
-    global $gbLondonHoliday ; 
-    global $gbMoonShadow    ; 
-    global $gbElanPalatinus ; 
-    global $gbSpringfest    ; 
-    global $gbELF           ; 
-    global $gbSecondKey     ; 
-    global $gbNagazora      ; 
-    global $gbFreyaHigh     ; 
-    global $gbGeminaInvasion; 
-    global $gbDivineKey     ; 
-    global $gbCWV           ; 
-    global $gbEmpyreanBlade ; 
-    global $gbAlienSpace    ; 
+    global $gbaichanFacts   ;
+    global $gbGratitude     ;
+    global $gbAEInvasion    ;
+    global $gbAzureWater    ;
+    global $gbSecondEruption;
+    global $gbGeminaTales   ;
+    global $gbWorldSerpent  ;
+    global $gbKianaPlayHI3  ;
+    global $gbLondonHoliday ;
+    global $gbMoonShadow    ;
+    global $gbElanPalatinus ;
+    global $gbSpringfest    ;
+    global $gbELF           ;
+    global $gbSecondKey     ;
+    global $gbNagazora      ;
+    global $gbFreyaHigh     ;
+    global $gbGeminaInvasion;
+    global $gbDivineKey     ;
+    global $gbCWV           ;
+    global $gbEmpyreanBlade ;
+    global $gbAlienSpace    ;
     $bookInfo = array();
-    $bookInfo[] = new bookStruct($gbaichanFacts, "Ai-Chan Facts");
-    $bookInfo[] = new bookStruct($gbGratitude, "Gratitude Arc");
-    $bookInfo[] = new bookStruct($gbAEInvasion, "AE Invasion");
-    $bookInfo[] = new bookStruct($gbAzureWater, "Azure Waters");
-    $bookInfo[] = new bookStruct($gbSecondEruption, "Second Eruption");
-    $bookInfo[] = new bookStruct($gbGeminaTales, "Gemina: Tales");
-    $bookInfo[] = new bookStruct($gbWorldSerpent, "World Serpent");
-    $bookInfo[] = new bookStruct($gbKianaPlayHI3, "Kiana Plays Honkai");
-    $bookInfo[] = new bookStruct($gbLondonHoliday, "London Holiday");
-    $bookInfo[] = new bookStruct($gbMoonShadow, "Moon Shadow");
-    $bookInfo[] = new bookStruct($gbElanPalatinus, "Elan Palatinus");
-    $bookInfo[] = new bookStruct($gbSpringfest, "SpringFest");
-    $bookInfo[] = new bookStruct($gbELF, "ELF");
-    $bookInfo[] = new bookStruct($gbSecondKey, "Second Key");
-    $bookInfo[] = new bookStruct($gbNagazora, "Escape From Nagazora");
-    $bookInfo[] = new bookStruct($gbFreyaHigh, "St. Freya High");
-    $bookInfo[] = new bookStruct($gbGeminaInvasion, "Gemina: Invasion");
-    $bookInfo[] = new bookStruct($gbDivineKey, "Divine Key");
-    $bookInfo[] = new bookStruct($gbCWV, "Cooking With Valkyries");
-    $bookInfo[] = new bookStruct($gbEmpyreanBlade, "Empyrean Blade");
-    $bookInfo[] = new bookStruct($gbAlienSpace, "Alien Space");
+    $bookInfo[] = new bookStruct($gbaichanFacts,    "Ai-Chan Facts"         );
+    $bookInfo[] = new bookStruct($gbGratitude,      "Gratitude Arc"         );
+    $bookInfo[] = new bookStruct($gbAEInvasion,     "AE Invasion"           );
+    $bookInfo[] = new bookStruct($gbAzureWater,     "Azure Waters"          );
+    $bookInfo[] = new bookStruct($gbSecondEruption, "Second Eruption"       );
+    $bookInfo[] = new bookStruct($gbGeminaTales,    "Gemina: Tales"         );
+    $bookInfo[] = new bookStruct($gbWorldSerpent,   "World Serpent"         );
+    $bookInfo[] = new bookStruct($gbKianaPlayHI3,   "Kiana Plays Honkai"    );
+    $bookInfo[] = new bookStruct($gbLondonHoliday,  "London Holiday"        );
+    $bookInfo[] = new bookStruct($gbMoonShadow,     "Moon Shadow"           );
+    $bookInfo[] = new bookStruct($gbElanPalatinus,  "Elan Palatinus"        );
+    $bookInfo[] = new bookStruct($gbSpringfest,     "SpringFest"            );
+    $bookInfo[] = new bookStruct($gbELF,            "ELF"                   );
+    $bookInfo[] = new bookStruct($gbSecondKey,      "Second Key"            );
+    $bookInfo[] = new bookStruct($gbNagazora,       "Escape From Nagazora"  );
+    $bookInfo[] = new bookStruct($gbFreyaHigh,      "St. Freya High"        );
+    $bookInfo[] = new bookStruct($gbGeminaInvasion, "Gemina: Invasion"      );
+    $bookInfo[] = new bookStruct($gbDivineKey,      "Divine Key"            );
+    $bookInfo[] = new bookStruct($gbCWV,            "Cooking With Valkyries");
+    $bookInfo[] = new bookStruct($gbEmpyreanBlade,  "Empyrean Blade"        );
+    $bookInfo[] = new bookStruct($gbAlienSpace,     "Alien Space"           );
     return $bookInfo;
 }
 
@@ -139,28 +139,28 @@ function getCNBooks()
     global $cnEmpyreanBlade ;
     global $cnAlienSpace    ;
     $bookInfo = array();
-    $bookInfo[] = new bookStruct($cnNagazora, "逃离长空篇");
-    $bookInfo[] = new bookStruct($cnHI3, "樱花追忆篇");
-    $bookInfo[] = new bookStruct($cnBohai, "绀海篇");
-    $bookInfo[] = new bookStruct($cnSakura, "绯樱篇");
-    $bookInfo[] = new bookStruct($cnAEInvasion, "逆熵入侵篇");   
-    $bookInfo[] = new bookStruct($cnGratitudeArc, "恩返篇");  
-    $bookInfo[] = new bookStruct($cnMoonShadow, "月影篇");  
-    $bookInfo[] = new bookStruct($cnElanPalatinus, "紫鸢篇");  
-    $bookInfo[] = new bookStruct($cnGodKey, "神之键秘话");  
-    $bookInfo[] = new bookStruct($cnKiana, "玩崩坏3的琪亚娜");  
-    $bookInfo[] = new bookStruct($cnSecondLawman, "第二次崩坏");  
-    $bookInfo[] = new bookStruct($cnCWV, "女武神的餐桌");  
-    $bookInfo[] = new bookStruct($cnSummerMem, "夏日回忆-预告篇");  
-    $bookInfo[] = new bookStruct($cnGeminaOrigin, "双子：起源");  
+    $bookInfo[] = new bookStruct($cnNagazora,       "逃离长空篇");
+    $bookInfo[] = new bookStruct($cnHI3,            "樱花追忆篇");
+    $bookInfo[] = new bookStruct($cnBohai,          "绀海篇");
+    $bookInfo[] = new bookStruct($cnSakura,         "绯樱篇");
+    $bookInfo[] = new bookStruct($cnAEInvasion,     "逆熵入侵篇");   
+    $bookInfo[] = new bookStruct($cnGratitudeArc,   "恩返篇");  
+    $bookInfo[] = new bookStruct($cnMoonShadow,     "月影篇");  
+    $bookInfo[] = new bookStruct($cnElanPalatinus,  "紫鸢篇");  
+    $bookInfo[] = new bookStruct($cnGodKey,         "神之键秘话");  
+    $bookInfo[] = new bookStruct($cnKiana,          "玩崩坏3的琪亚娜");  
+    $bookInfo[] = new bookStruct($cnSecondLawman,   "第二次崩坏");  
+    $bookInfo[] = new bookStruct($cnCWV,            "女武神的餐桌");  
+    $bookInfo[] = new bookStruct($cnSummerMem,      "夏日回忆-预告篇");  
+    $bookInfo[] = new bookStruct($cnGeminaOrigin,   "双子：起源");  
     $bookInfo[] = new bookStruct($cnGeminaInvasion, "双子：入侵");  
-    $bookInfo[] = new bookStruct($cnWorldSerpent, "蛇之篇");  
-    $bookInfo[] = new bookStruct($cnLondonHoliday, "雾都假日"); 
-    $bookInfo[] = new bookStruct($cnSpringfest, "年岁");  
-    $bookInfo[] = new bookStruct($cnELF, "武装人偶");  
-    $bookInfo[] = new bookStruct($cnSecondKey, "传承");  
-    $bookInfo[] = new bookStruct($cnEmpyreanBlade, "云墨剑心");  
-    $bookInfo[] = new bookStruct($cnAlienSpace, "异乡"); 
+    $bookInfo[] = new bookStruct($cnWorldSerpent,   "蛇之篇");  
+    $bookInfo[] = new bookStruct($cnLondonHoliday,  "雾都假日"); 
+    $bookInfo[] = new bookStruct($cnSpringfest,     "年岁");  
+    $bookInfo[] = new bookStruct($cnELF,            "武装人偶");  
+    $bookInfo[] = new bookStruct($cnSecondKey,      "传承");  
+    $bookInfo[] = new bookStruct($cnEmpyreanBlade,  "云墨剑心");  
+    $bookInfo[] = new bookStruct($cnAlienSpace,     "异乡"); 
     return $bookInfo;
 }
 
@@ -218,6 +218,7 @@ function downloadBook($serverRegion, $bookID, $startRange, $endRange)
         $lv1dirname = "./GBBook";
     }
     echo("Start downloading chapter 1\n");
+    
     // For all chapter in the range
     $curlCheck = curl_init();
     curl_setopt($curlCheck, CURLOPT_CAINFO, './cacert.pem');
@@ -239,6 +240,7 @@ function downloadBook($serverRegion, $bookID, $startRange, $endRange)
             echo($lv1concatURL . " => " . $lv1dirname . $bookID .  "/Chapter" . "0" . $chapCount . "\n");
         else 
             echo($lv1concatURL . " => " . $lv1dirname . $bookID .  "/Chapter" . $chapCount . "\n");
+
         // Folder structure : 
         // ./[REGION]Book[BookID]/Chapter[Chapter Number]/[TWO FIRST DIGITS IS CHAPTER][TWO LAST DIGITS IS PAGE].jpg
         for ($pageCount = 1; $pageCount < 70; $pageCount++)
@@ -277,6 +279,7 @@ function downloadBook($serverRegion, $bookID, $startRange, $endRange)
             }
             curl_setopt($curlCheck, CURLOPT_URL, $lv2concatURL);
             curl_exec($curlCheck);
+
             // Download page
             if (curl_getinfo($curlCheck, CURLINFO_HTTP_CODE) == 200)
             {
@@ -308,7 +311,8 @@ function getRange($serverRegion, $bookID)
     $Range[] = readline("Please type the chapter to start from: ");
     if ($Range[0] < 1 || $Range[0] > ($maxChap - 1))
         exit("Start range cannot be smaller than 1 or greater than " . $maxChap);
-    $Range[] = readline("Please type the chapter to end to: ");
+
+    $Range[] = readline("Please type the chapter to where to stop(including it): ");
     if ($Range[1] > ($maxChap - 1) || $Range[1] < 1)
         exit("End range cannot be greater than " . $maxChap . " or smaller than 1");
 
@@ -320,20 +324,9 @@ function getRange($serverRegion, $bookID)
 function userInterface()
 {
     global $globalBaseURL;
-    global $chinaBaseURL ;
-    $errorlvl = readline("Type 1 to show all php errors messages and type 2 to disabled them: ");
-    echo("\n");
-    if ($errorlvl == 1)
-    {
-        error_reporting(-1);
-    }
+    global $chinaBaseURL;
 
-    else if ($errorlvl == 2)
-    {
-        error_reporting(0);
-    }
-    else error_reporting(-1);
-
+    // Download certificate
     if (!file_exists("./cacert.pem"))
     {
         echo("No \"cacert.pem\" in current directory!\nDownloading \"cacert.pem\"...\n");
@@ -341,10 +334,11 @@ function userInterface()
         echo("Finished downloading \"cacert.pem\"\n");
     }
 
-    echo("Welcome to HI3 manga php downloader! (HMPD if you prefer)\n");
-    echo("\n");
+    // Get server
+    echo("Welcome to HI3 manga php downloader! (HMPD if you prefer)\n\n");
     $server = readline("Type 1 to download from global server.And Type 2 to download from CN server: ");
     echo("\n");
+
     // Show available books and get range from user input
     if ($server == 1)
     {
@@ -353,11 +347,13 @@ function userInterface()
         {
             echo("Type " . $Index . " to download the book " . $bookInfo[$Index]->bookID . " also known as " . $bookInfo[$Index]->bookName . "\n");
         }
+        
         $bookIndex = readline("Type the corresponding number: ");
         if ($bookIndex < 0 || $bookIndex >= count($bookInfo))
             exit("Not valid input\n");
         if ($bookInfo[$bookIndex] == NULL)
             exit("Not valid input\n");
+
         $Range = getRange($globalBaseURL, $bookInfo[$bookIndex]->bookID);
         downloadBook($globalBaseURL, $bookInfo[$bookIndex]->bookID, $Range[0], $Range[1]);
         echo("Total diskspace taken by " . "\"./GBBook" . $bookInfo[$bookIndex]->bookID . "\": " . getFolderSize("./GBBook" . $bookInfo[$bookIndex]->bookID) . "(bytes)\n");
@@ -370,24 +366,23 @@ function userInterface()
         {
             echo("Type " . $Index . " to download the book " . $bookInfo[$Index]->bookID . " also known as " . $bookInfo[$Index]->bookName . "\n");
         }
-        echo("Book names may haven't been displayed correctly if you're on windows use windows terminal\nAnd if you're using bash (GNU/Linux or Termux) set the terminal encoding to UTF-8\n");
+        echo("Book names may haven't been displayed correctly, if you're on windows use windows terminal\nAnd if you're using bash (GNU/Linux or Termux) set the terminal encoding to UTF-8\n");
+        
         $bookIndex = readline("Type the corresponding number: ");
         if ($bookIndex < 0 || $bookIndex >= count($bookInfo))
             exit("Not valid input\n");
         if ($bookInfo[$bookIndex] == NULL)
             exit("Not valid input\n");
-        $Range = getRange($globalBaseURL, $bookInfo[$bookIndex]->bookID);
+
+        $Range = getRange($chinaBaseURL, $bookInfo[$bookIndex]->bookID);
         downloadBook($chinaBaseURL, $bookInfo[$bookIndex]->bookID, $Range[0], $Range[1]);
         echo("Total diskspace taken by " . "\"./CNBook" . $bookInfo[$bookIndex]->bookID . "\": " . getFolderSize("./CNBook" . $bookInfo[$bookIndex]->bookID) . "(bytes)\n");
     }
-    else { echo("Not a valid input\n"); }
+    else 
+        echo("Not a valid choice\n");
 }
-//Windows exclusive stuff
-//if (startsWith(PHP_OS, "WIN"))
-//{
-//    
-//}
-// Entry point
+
+// Guided interface
 userInterface();
 ?>
   
