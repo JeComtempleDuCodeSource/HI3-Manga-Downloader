@@ -2,15 +2,14 @@
 Very simple PHP script to download books(manhua if you prefer) from the official HI3 COMIC, CN site (https://comic.bh3.com/) and GLOBAL site (https://manga.honkaiimpact3.com/).
 
 ## TO DO
-* Start from a certain chapter, stop before a certain chapter, download a range of chapter or a precise chapter: All done.
-* Clearer code and interface: Well... one day maybe.
+* I don't know...
 
 ## Why?
-I wrote it because i want to keep sort a an archive of these manhuas, and if you want to know why did i choose PHP it's just because i wanted a simple language and writing this in C or C++ would be useless IMO.
+Today everything needs internet and that is pretty annoying one my biggest complain about HI3 and Genshin would be the fact that it needs constant internet connection, and also Game file encryption but what if suddenly miHoYo shutdown or this game is blocked? Well... you can say bye bye to HI3!\
+Sooo i wrote a script to download HI3 Manhuas and download them on whatever device that can run PHP(of course you can move .jpg later) you want, Windows, GNU-Linux or Android through Termux.\
+So that we can at least keep this part of HI3!\
 
 ## Guide
-Enable curl extension in php.ini by adding in "extension = php_curl.dll", if you're on windows and "extension = php_curl.so" if you're on GNU/Linux or Termux(Android).
-
 ### GNU-Linux
 Run: \
 ```sudo apt install php```\
@@ -34,7 +33,7 @@ To move them directly from the app run:\
 "sdcard0" is the phone internal storage "sdcard1" the external sdcard and "usbotg" the external USB key.
 
 ### Windows
-First go to https://windows.php.net/download/ then go to section "PHP7.4" then "VC15 x64 Thread Safe" and "Zip" download the Zip, Unzip it.\
+First go to https://windows.php.net/download/ then go download the binaries of whatever the lastest version of PHP is and extract it.\
 Place the unzipped folder in "C:\" then add the directory to the path.\
 Now open cmd and type "php -v", if windows tells that you that it is not recognized that means you didn't setup correctly php, if not everything is fine.\
 Then go to "https://github.com/JeComtempleDuCodeSource/HMPD" and download the source code by clicking "Code"->"Download ZIP" unzip that.\
