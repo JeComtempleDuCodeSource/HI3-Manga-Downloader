@@ -321,7 +321,7 @@ function getRange($serverRegion, $bookID)
     return $Range;
 }
 
-function userInterface()
+function guidedInterface()
 {
     global $globalBaseURL;
     global $chinaBaseURL;
@@ -382,7 +382,84 @@ function userInterface()
         echo("Not a valid choice\n");
 }
 
-// Guided interface
-userInterface();
+function commandLineInterface($serverID, $bookID, $startRange, $endRange)
+{
+    global $globalBaseURL;
+    global $chinaBaseURL;
+
+    // Download certificate
+    if (!file_exists("./cacert.pem"))
+    {
+        echo("No \"cacert.pem\" in current directory!\nDownloading \"cacert.pem\"...\n");
+        file_put_contents("./cacert.pem", file_get_contents("https://curl.haxx.se/ca/cacert.pem"));
+        echo("Finished downloading \"cacert.pem\"\n");
+    }
+
+    $serverName;
+    if ($serverID == 1)
+    {
+        $serverName = $globalBaseURL;
+        $bookInfo = getGlobalBooks();
+        $bookIDValid = false;
+        for ($Index = 0; $Index < count($bookInfo); $Index++)
+        {
+            if ($bookID == $bookInfo[$Index]->bookID)
+            {
+                $bookIDValid = true;
+                echo("Target book: " . $bookInfo[$Index]->bookName . "\n");
+                break;
+            }
+        }
+        if ($bookIDValid == false)
+            exit("Invalid book ID");
+    }
+    else if ($serverID == 2)
+    {
+        $serverName = $chinaBaseURL;
+        $bookInfo = getCNBooks();
+        $bookIDValid = false;
+        for ($Index = 0; $Index < count($bookInfo); $Index++)
+        {
+            if ($bookID == $bookInfo[$Index]->bookID)
+            {
+                $bookIDValid = true;
+                echo("Target book: " . $bookInfo[$Index]->bookName . "\n");
+                break;
+            }
+        }
+        if ($bookIDValid == false)
+            exit("Invalid book ID");
+    }
+    else 
+        exit("First value is invalid, GLOBAL = 1, CN = 2\n");
+    $maxChap = getLastChapter($serverName . "/" . $bookID);
+    if ($startRange < 1 || $startRange > ($maxChap - 1))
+        exit("Start range cannot be smaller than 1 or greater than " . $maxChap);
+
+    if ($endRange > ($maxChap - 1) || $endRange < 1)
+        exit("End range cannot be greater than " . $maxChap . " or smaller than 1");
+
+    if ($startRange > $endRange)
+        exit("Start range cannot be greater than end range");
+    
+    downloadBook($serverName, $bookID, $startRange, $endRange);
+}
+if ($argc == 5) // SRV BOOKID START END
+{
+    commandLineInterface($argv[1], $argv[2], $argv[3], $argv[4]);
+}
+else if ($argc == 1)// Guided interface
+{
+    guidedInterface();
+}
+else 
+{
+    echo("Usage : " . $argv[0] . " [SERVER_ID] [BOOK_ID] [START_CHAPTER] [END_CHAPTER]\n");
+    echo("\t SERVER_ID: 1 = GLOBAL, 2 = MAINLAND CHINA\n");
+    echo("\t BOOK_ID: The 4-digit integer on the HI3 COMIC Official site when you read a specific book i.e: http://....com/book/[BookID]\n");
+    echo("\t START_CHAPTER: The chapter from where you want to start download, it includes it\n");
+    echo("\t END_CHAPTER: The chapter from where you want to finish download, it includes it\n");
+    echo("Get more help or report issues at https://github.com/JeComtempleDuCodeSource/HMPD\n");
+}
 ?>
   
