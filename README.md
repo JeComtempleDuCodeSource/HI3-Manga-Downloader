@@ -7,7 +7,7 @@ Very simple PHP script to download books(manhua if you prefer) from the official
 ## Why?
 Today everything needs internet and that is pretty annoying one my biggest complain about HI3 and Genshin would be the fact that it needs constant internet connection, and also Game file encryption but what if suddenly miHoYo shutdown or this game is blocked? Well... you can say bye bye to HI3!\
 Sooo i wrote a script to download HI3 Manhuas and download them on whatever device that can run PHP(of course you can move .jpg later) you want, Windows, GNU-Linux or Android through Termux.\
-So that we can at least keep this part of HI3!\
+So that we can at least keep this part of HI3!
 
 ## Guide
 ### GNU-Linux
