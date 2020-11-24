@@ -164,13 +164,6 @@ function getCNBooks()
     return $bookInfo;
 }
 
-// Function taken from https://stackoverflow.com/questions/834303/startswith-and-endswith-functions-in-php
-function startsWith($string, $startString) 
-{ 
-    $length = strlen($startString); 
-    return (substr($string, 0, $length) === $startString); 
-} 
-
 // Function taken from https://gist.github.com/eusonlito/5099936
 function getFolderSize($Directory)
 {
