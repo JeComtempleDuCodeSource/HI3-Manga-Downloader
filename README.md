@@ -1,5 +1,5 @@
 # HI3-Manga-PHP-Downloader
-![HMPD ICON](/HMPD512x512.bmp) 
+![HMPD ICON](/_HMPD512x512.bmp) 
 
 Very simple PHP script to download books(manhua if you prefer) from the official HI3 COMIC, CN site (https://comic.bh3.com/) and GLOBAL site (https://manga.honkaiimpact3.com/).
 
