@@ -336,6 +336,7 @@ function guidedInterface()
 
     // Get server
     echo("Welcome to HI3 manga php downloader! (HMPD if you prefer)\n\n");
+    echo("Get more help or report issues at https://github.com/JeComtempleDuCodeSource/HMPD\n");
     $server = readline("Type 1 to download from global server.And Type 2 to download from CN server: ");
     echo("\n");
 
