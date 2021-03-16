@@ -4,7 +4,7 @@ class bookStruct
 {
     public $bookID = 0;
     public $bookName = "NOT INITIALIZED NAME";
-    function __construct($argBookID, $argBookName)
+    public function __construct($argBookID, $argBookName)
     {
         $this->bookID = $argBookID;
         $this->bookName = $argBookName;
@@ -39,6 +39,7 @@ $gbDivineKey      = 1018;
 $gbCWV            = 1019;
 $gbEmpyreanBlade  = 1020;
 $gbAlienSpace     = 1021;
+$gbSpringFestival = 1022;
 
 // CN Manga IDs
 $cnNagazora       = 1001;
@@ -63,6 +64,7 @@ $cnELF            = 1020;
 $cnSecondKey      = 1021;
 $cnEmpyreanBlade  = 1022;
 $cnAlienSpace     = 1023;
+$cnSpringFestival = 1024;
 
 // Return an array of global bookstruct
 function getGlobalBooks()
@@ -88,6 +90,7 @@ function getGlobalBooks()
     global $gbCWV           ;
     global $gbEmpyreanBlade ;
     global $gbAlienSpace    ;
+    global $gbSpringFestival;
     $bookInfo = array();
     $bookInfo[] = new bookStruct($gbaichanFacts,    "Ai-Chan Facts"         );
     $bookInfo[] = new bookStruct($gbGratitude,      "Gratitude Arc"         );
@@ -110,6 +113,7 @@ function getGlobalBooks()
     $bookInfo[] = new bookStruct($gbCWV,            "Cooking With Valkyries");
     $bookInfo[] = new bookStruct($gbEmpyreanBlade,  "Empyrean Blade"        );
     $bookInfo[] = new bookStruct($gbAlienSpace,     "Alien Space"           );
+    $bookInfo[] = new bookStruct($gbSpringFestival, "Spring Festival Trip"  );
     return $bookInfo;
 }
 
@@ -138,6 +142,7 @@ function getCNBooks()
     global $cnSecondKey     ;
     global $cnEmpyreanBlade ;
     global $cnAlienSpace    ;
+    global $cnSpringFestival;
     $bookInfo = array();
     $bookInfo[] = new bookStruct($cnNagazora,       "逃离长空篇");
     $bookInfo[] = new bookStruct($cnHI3,            "樱花追忆篇");
@@ -161,6 +166,7 @@ function getCNBooks()
     $bookInfo[] = new bookStruct($cnSecondKey,      "传承");  
     $bookInfo[] = new bookStruct($cnEmpyreanBlade,  "云墨剑心");  
     $bookInfo[] = new bookStruct($cnAlienSpace,     "异乡"); 
+    $bookInfo[] = new bookStruct($cnSpringFestival, "新春旅行"); 
     return $bookInfo;
 }
 
@@ -168,7 +174,7 @@ function getCNBooks()
 function getFolderSize($Directory)
 {
     $Size = 0;
-    foreach (glob(rtrim($Directory, '/').'/*', GLOB_NOSORT) as $eachElement) 
+    foreach (glob(rtrim($Directory, "/")."/*", GLOB_NOSORT) as $eachElement) 
     {
         $Size += is_file($eachElement) ? filesize($eachElement) : getFolderSize($eachElement);
     }
@@ -180,7 +186,7 @@ function getLastChapter($BookURL)
 {
     echo("Detecting chapter count...\n");
     $curlCheck = curl_init();
-    curl_setopt($curlCheck, CURLOPT_CAINFO, './cacert.pem');
+    curl_setopt($curlCheck, CURLOPT_CAINFO, "./cacert.pem");
     curl_setopt($curlCheck, CURLOPT_NOBODY, true);
     for ($checkChap = 1; $checkChap <= 70; $checkChap++)
     {
@@ -214,12 +220,12 @@ function downloadBook($serverRegion, $bookID, $startRange, $endRange)
     
     // For all chapter in the range
     $curlCheck = curl_init();
-    curl_setopt($curlCheck, CURLOPT_CAINFO, './cacert.pem');
+    curl_setopt($curlCheck, CURLOPT_CAINFO, "./cacert.pem");
     curl_setopt($curlCheck, CURLOPT_NOBODY, true);
     
     $curlDownload = curl_init();
     curl_setopt($curlDownload, CURLOPT_RETURNTRANSFER, true);
-    curl_setopt($curlDownload, CURLOPT_CAINFO, './cacert.pem');
+    curl_setopt($curlDownload, CURLOPT_CAINFO, "./cacert.pem");
     curl_setopt($curlDownload, CURLOPT_HEADER, false);
     for ($chapCount = $startRange; $chapCount <= $endRange; $chapCount++)
     {
@@ -323,14 +329,14 @@ function guidedInterface()
     if (!file_exists("./cacert.pem"))
     {
         echo("No \"cacert.pem\" in current directory!\nDownloading \"cacert.pem\"...\n");
-        file_put_contents("./cacert.pem", file_get_contents("https://curl.haxx.se/ca/cacert.pem"));
+        file_put_contents("./cacert.pem", file_get_contents("https://curl.se/ca/cacert.pem"));
         echo("Finished downloading \"cacert.pem\"\n");
     }
 
     // Get server
     echo("Welcome to HI3 manga php downloader! (HMPD if you prefer)\n\n");
     echo("Get more help or report issues at https://github.com/JeComtempleDuCodeSource/HMPD\n");
-    $server = readline("Type 1 to download from global server.And Type 2 to download from CN server: ");
+    $server = readline("Type 1 to download from global server\nType 2 to download from CN server\nType the corresponding number: ");
     echo("\n");
 
     // Show available books and get range from user input
@@ -385,7 +391,7 @@ function commandLineInterface($serverID, $bookID, $startRange, $endRange)
     if (!file_exists("./cacert.pem"))
     {
         echo("No \"cacert.pem\" in current directory!\nDownloading \"cacert.pem\"...\n");
-        file_put_contents("./cacert.pem", file_get_contents("https://curl.haxx.se/ca/cacert.pem"));
+        file_put_contents("./cacert.pem", file_get_contents("https://curl.se/ca/cacert.pem"));
         echo("Finished downloading \"cacert.pem\"\n");
     }
 
@@ -438,6 +444,9 @@ function commandLineInterface($serverID, $bookID, $startRange, $endRange)
     
     downloadBook($serverName, $bookID, $startRange, $endRange);
 }
+
+echo("THIS VERSION IS NO LONGER MAINTAINED SEE https://github.com/JeComtempleDuCodeSource/HMCD !\n");
+
 if ($argc == 5) // SRV BOOKID START END
 {
     commandLineInterface($argv[1], $argv[2], $argv[3], $argv[4]);
