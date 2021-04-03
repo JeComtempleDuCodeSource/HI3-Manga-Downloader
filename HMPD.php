@@ -445,7 +445,7 @@ function commandLineInterface($serverID, $bookID, $startRange, $endRange)
     downloadBook($serverName, $bookID, $startRange, $endRange);
 }
 
-echo("THIS VERSION IS NO LONGER MAINTAINED SEE https://github.com/JeComtempleDuCodeSource/HMCD !\n");
+echo("THIS VERSION IS NO LONGER MAINTAINED SEE https://github.com/JeFaitDesSpaghettis/HMCD !\n");
 
 if ($argc == 5) // SRV BOOKID START END
 {
@@ -462,7 +462,7 @@ else
     echo("\t BOOK_ID: The 4-digit integer on the HI3 COMIC Official site when you read a specific book i.e: http://....com/book/[BookID]\n");
     echo("\t START_CHAPTER: The chapter from where you want to start download, it includes it\n");
     echo("\t END_CHAPTER: The chapter from where you want to finish download, it includes it\n");
-    echo("Get more help or report issues at https://github.com/JeComtempleDuCodeSource/HMPD\n");
+    echo("Get more help or report issues at https://github.com/JeFaitDesSpaghettis/HMPD\n");
 }
 ?>
   
